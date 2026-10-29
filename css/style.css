@@ -1140,6 +1140,48 @@ a.install-option:hover { background: rgba(255, 255, 255, 0.05); }
     scroll-snap-align: start;
     background: #101722;
 }
+.store-notes { margin-bottom: 2.4rem; }
+.note-release {
+    max-width: 46rem;
+    padding: 1.25rem 1.2rem 0.4rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+.note-version {
+    color: var(--blue-bright);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+.note-welcome {
+    margin-top: 0.45rem;
+    font-size: 1.12rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.45;
+}
+.note-lead {
+    margin-top: 0.55rem;
+    color: var(--muted);
+}
+.note-list {
+    margin: 1rem 0 0.85rem;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.95rem;
+}
+.note-list h3 {
+    font-size: 0.98rem;
+    font-weight: 600;
+}
+.note-list p {
+    margin-top: 0.2rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
 .store-about { max-width: 46rem; margin-bottom: 2.2rem; }
 .store-about p {
     margin-top: 0.8rem;
