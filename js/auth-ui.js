@@ -15,14 +15,14 @@ function escapeHtml(value) {
     var account = null;
 
     function showGuest() {
-        slot.innerHTML = '<a class="header-login" href="./login.html">' + escapeHtml(label("auth.login", "Giriş yap")) + "</a>";
+        slot.innerHTML = '<a class="header-login" href="/login">' + escapeHtml(label("auth.login", "Giriş yap")) + "</a>";
     }
 
     function showUser(user) {
         var raw = user.name || user.email;
         var name = escapeHtml(raw);
         var initial = escapeHtml(String(raw).trim().charAt(0).toUpperCase());
-        var panel = user.role === "admin" ? '<a href="./admin.html">' + escapeHtml(label("auth.panel", "Panel")) + "</a>" : "";
+        var panel = user.role === "admin" ? '<a href="/admin">' + escapeHtml(label("auth.panel", "Panel")) + "</a>" : "";
         slot.innerHTML =
             '<button class="account-btn" type="button" aria-expanded="false" aria-haspopup="true">' +
                 '<span class="account-mark">' + initial + "</span>" +
@@ -42,7 +42,7 @@ function escapeHtml(value) {
         });
         slot.querySelector("[data-logout]").addEventListener("click", function () {
             fetch("/api/logout", { method: "POST" }).finally(function () {
-                window.location.href = "./index.html";
+                window.location.href = "/";
             });
         });
     }

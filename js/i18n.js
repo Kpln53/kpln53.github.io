@@ -9,10 +9,15 @@
     ];
 
     var NAV = {
+        "": "nav.home",
         "index.html": "nav.home",
+        "games": "nav.games",
         "games.html": "nav.games",
+        "about": "nav.about",
         "about.html": "nav.about",
+        "news": "nav.news",
         "news.html": "nav.news",
+        "contact": "nav.contact",
         "contact.html": "nav.contact"
     };
 
@@ -47,7 +52,7 @@
             "about.title": "Hakkımızda",
             "about.p1": "Oyun ve uygulama geliştiren bir stüdyoyuz. Ürünleri sade tutar, oyuncunun ne yapacağını ilk bakışta anlamasını isteriz.",
             "about.p2": "Şu anki oyunumuz Titan Soccer. Kişisel bir 2D kariyer geliştirme oyunu: kendi oyuncunla sahaya çıkar, maç maç ilerler ve sezon boyunca becerilerini geliştirirsin.",
-            "about.note": "Soru, geri bildirim ya da bir iş birliği için <a class=\"section-link\" href=\"./contact.html\">iletişim</a> sayfasından yazabilirsin.",
+            "about.note": "Soru, geri bildirim ya da bir iş birliği için <a class=\"section-link\" href=\"/contact\">iletişim</a> sayfasından yazabilirsin.",
             "games.eyebrow": "Liste",
             "games.title": "Oyunlar",
             "games.lead": "Stüdyonun oyunları. Bir satırın üstüne gelince oyunun açıklaması açılır.",
@@ -179,7 +184,7 @@
             "about.title": "About",
             "about.p1": "We are a studio that makes games and apps. We keep products simple, so a player can see what to do at first glance.",
             "about.p2": "Our current game is Titan Soccer. It is a personal 2D career game: you take the pitch with your own player, go match by match, and build your skills through the season.",
-            "about.note": "For a question, feedback, or a collaboration, write from the <a class=\"section-link\" href=\"./contact.html\">contact</a> page.",
+            "about.note": "For a question, feedback, or a collaboration, write from the <a class=\"section-link\" href=\"/contact\">contact</a> page.",
             "games.eyebrow": "List",
             "games.title": "Games",
             "games.lead": "The studio’s games. Hover a row to open that game’s description.",
@@ -311,7 +316,7 @@
             "about.title": "Über uns",
             "about.p1": "Wir sind ein Studio für Spiele und Apps. Wir halten Produkte schlicht, damit ein Spieler auf den ersten Blick sieht, was zu tun ist.",
             "about.p2": "Unser aktuelles Spiel ist Titan Soccer. Ein persönliches 2D-Karrierespiel: du gehst mit deinem eigenen Spieler auf den Platz, Spiel für Spiel, und baust deine Fähigkeiten über die Saison auf.",
-            "about.note": "Eine Frage, Rückmeldung oder Zusammenarbeit schreibst du über die <a class=\"section-link\" href=\"./contact.html\">Kontakt</a>seite.",
+            "about.note": "Eine Frage, Rückmeldung oder Zusammenarbeit schreibst du über die <a class=\"section-link\" href=\"/contact\">Kontakt</a>seite.",
             "games.eyebrow": "Liste",
             "games.title": "Spiele",
             "games.lead": "Die Spiele des Studios. Zeig auf eine Zeile, dann öffnet sich die Beschreibung.",
@@ -443,7 +448,7 @@
             "about.title": "À propos",
             "about.p1": "Nous sommes un studio de jeux et d’applications. Nous gardons les produits simples, pour qu’un joueur voie tout de suite quoi faire.",
             "about.p2": "Notre jeu actuel est Titan Soccer. Un jeu de carrière 2D personnel : tu entres sur le terrain avec ton joueur, match après match, et tu développes tes compétences pendant la saison.",
-            "about.note": "Pour une question, un retour ou une collaboration, écris depuis la page <a class=\"section-link\" href=\"./contact.html\">contact</a>.",
+            "about.note": "Pour une question, un retour ou une collaboration, écris depuis la page <a class=\"section-link\" href=\"/contact\">contact</a>.",
             "games.eyebrow": "Liste",
             "games.title": "Jeux",
             "games.lead": "Les jeux du studio. Passe sur une ligne pour ouvrir la description.",
@@ -575,7 +580,7 @@
             "about.title": "Nosotros",
             "about.p1": "Somos un estudio de juegos y aplicaciones. Mantenemos los productos simples, para que un jugador vea qué hacer a la primera.",
             "about.p2": "Nuestro juego actual es Titan Soccer. Un juego de carrera 2D personal: sales al campo con tu jugador, partido a partido, y desarrollas tus habilidades durante la temporada.",
-            "about.note": "Para una pregunta, un comentario o una colaboración, escribe desde la página de <a class=\"section-link\" href=\"./contact.html\">contacto</a>.",
+            "about.note": "Para una pregunta, un comentario o una colaboración, escribe desde la página de <a class=\"section-link\" href=\"/contact\">contacto</a>.",
             "games.eyebrow": "Lista",
             "games.title": "Juegos",
             "games.lead": "Los juegos del estudio. Pasa por una fila para abrir la descripción.",
@@ -707,7 +712,7 @@
             "about.title": "Chi siamo",
             "about.p1": "Siamo uno studio di giochi e app. Teniamo i prodotti semplici, così un giocatore capisce subito cosa fare.",
             "about.p2": "Il nostro gioco attuale è Titan Soccer. Un gioco di carriera 2D personale: scendi in campo con il tuo giocatore, partita dopo partita, e sviluppi le abilità durante la stagione.",
-            "about.note": "Per una domanda, un commento o una collaborazione, scrivi dalla pagina <a class=\"section-link\" href=\"./contact.html\">contatti</a>.",
+            "about.note": "Per una domanda, un commento o una collaborazione, scrivi dalla pagina <a class=\"section-link\" href=\"/contact\">contatti</a>.",
             "games.eyebrow": "Elenco",
             "games.title": "Giochi",
             "games.lead": "I giochi dello studio. Passa su una riga per aprire la descrizione.",
@@ -829,7 +834,8 @@
     }
 
     function navKey(href) {
-        var file = String(href || "").split("?")[0].split("/").pop();
+        var path = String(href || "").split("?")[0].replace(/\/+$/, "");
+        var file = path.split("/").pop();
         return NAV[file] || "";
     }
 

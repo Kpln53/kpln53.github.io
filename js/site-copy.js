@@ -20,7 +20,9 @@
         });
         document.querySelectorAll("[data-bind-src]").forEach(function (el) {
             var value = read(data, el.getAttribute("data-bind-src"));
-            if (typeof value === "string" && value) el.src = value;
+            if (typeof value !== "string" || !value) return;
+            if (value.indexOf("./") === 0) value = value.slice(1);
+            el.src = value;
         });
         document.querySelectorAll("[data-bind-href]").forEach(function (el) {
             var value = read(data, el.getAttribute("data-bind-href"));

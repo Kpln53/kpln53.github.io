@@ -16,7 +16,7 @@
     }
 
     function goHome() {
-        window.location.assign("./index.html");
+        window.location.assign("/");
     }
 
     var login = document.querySelector("#login-form");

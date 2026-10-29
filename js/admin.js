@@ -129,8 +129,8 @@
             content.games.push({
                 name: "",
                 kind: "Oyun",
-                href: "./games.html",
-                logo: "./images/ttslogo1.png",
+                href: "/games",
+                logo: "/images/ttslogo1.png",
                 summary: "",
                 blurb: "",
                 rating: "",
@@ -328,7 +328,7 @@
         })
         .then(function (user) {
             if (!user || user.role !== "admin") {
-                window.location.replace("./index.html");
+                window.location.replace("/");
                 return null;
             }
             if (email) email.textContent = user.email;
@@ -346,6 +346,6 @@
             draw();
         })
         .catch(function () {
-            window.location.replace("./login.html");
+            window.location.replace("/login");
         });
 })();

@@ -14,8 +14,8 @@
         {
             name: "Titan Soccer",
             kind: "Futbol",
-            href: "./titan-soccer.html",
-            logo: "./images/ttslogo1.png",
+            href: "/titan-soccer",
+            logo: "/images/ttslogo1.png",
             summary: "Titan Soccer, kişisel bir 2D kariyer geliştirme oyunudur. Kendi oyuncunla sahaya çıkar, maç maç ilerler ve sezon boyunca becerilerini geliştirirsin. Odak kalabalık bir kadroda değil, sana ait tek bir futbol yolundadır.",
             rating: "5,0",
             ratingCount: "13",
@@ -56,6 +56,14 @@
 
     var lastData = null;
 
+    function localPath(value) {
+        var path = String(value || "");
+        if (path.indexOf("./") === 0) path = path.slice(1);
+        if (/\.html$/.test(path)) path = path.replace(/\.html$/, "");
+        if (path === "/index") path = "/";
+        return path;
+    }
+
     function apply(data) {
         lastData = data;
         var store = data && data.site && data.site.playStoreUrl ? data.site.playStoreUrl : PLAY_STORE_URL;
@@ -74,11 +82,13 @@
         if (!root) return;
 
     root.innerHTML = games.map(function (game) {
+        var href = localPath(game.href);
+        var logo = localPath(game.logo);
         return (
             '<div class="game-tab">' +
-                '<a class="game-tab-hit" href="' + escapeHtml(game.href) + '">' +
+                '<a class="game-tab-hit" href="' + escapeHtml(href) + '">' +
                     '<div class="game-tab-bar">' +
-                        '<img class="game-logo" src="' + escapeHtml(game.logo) + '" alt="">' +
+                        '<img class="game-logo" src="' + escapeHtml(logo) + '" alt="">' +
                         '<span class="game-tab-copy">' +
                             '<span class="game-tab-title">' + escapeHtml(game.name) + "</span>" +
                             '<span class="game-tab-kind">' + escapeHtml(game.kind) + "</span>" +
