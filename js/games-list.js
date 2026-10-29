@@ -9,45 +9,96 @@
             '<path fill="#4285F4" d="M4.7 2.7C4.3 3 4 3.5 4 4.1l9.2 7.9 3.2-3.2L4.7 2.7z"/>' +
         "</svg>";
 
-    document.querySelectorAll("[data-play-store]").forEach(function (link) {
-        link.href = PLAY_STORE_URL;
-    });
-
     var root = document.querySelector("[data-game-list]");
-    if (!root) return;
-
-    var games = [
+    var defaults = [
         {
-            no: "01",
             name: "Titan Soccer",
             kind: "Futbol",
             href: "./titan-soccer.html",
             logo: "./images/ttslogo1.png",
-            summary: "Titan Soccer, kişisel bir 2D kariyer geliştirme oyunudur. Kendi oyuncunla sahaya çıkar, maç maç ilerler ve sezon boyunca becerilerini geliştirirsin. Odak kalabalık bir kadroda değil, sana ait tek bir futbol yolundadır."
+            summary: "Titan Soccer, kişisel bir 2D kariyer geliştirme oyunudur. Kendi oyuncunla sahaya çıkar, maç maç ilerler ve sezon boyunca becerilerini geliştirirsin. Odak kalabalık bir kadroda değil, sana ait tek bir futbol yolundadır.",
+            rating: "5,0",
+            ratingCount: "13",
+            downloads: "10+"
         }
     ];
+
+    function paintStats(game) {
+        var rootStats = document.querySelector("[data-store-stats]");
+        if (!rootStats) return;
+        var values = {
+            rating: game && game.rating,
+            ratingCount: game && game.ratingCount,
+            downloads: game && game.downloads
+        };
+        var any = false;
+        Object.keys(values).forEach(function (key) {
+            var stat = rootStats.querySelector('[data-stat="' + key + '"]');
+            if (!stat) return;
+            var value = String(values[key] == null ? "" : values[key]).trim();
+            var num = stat.querySelector("[data-bind]");
+            if (!value) {
+                stat.hidden = true;
+                return;
+            }
+            if (num) num.textContent = value;
+            stat.hidden = false;
+            any = true;
+        });
+        rootStats.hidden = !any;
+    }
+
+    function escapeHtml(value) {
+        return String(value || "").replace(/[&<>"']/g, function (char) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char];
+        });
+    }
+
+    var lastData = null;
+
+    function apply(data) {
+        lastData = data;
+        var store = data && data.site && data.site.playStoreUrl ? data.site.playStoreUrl : PLAY_STORE_URL;
+        var games = data && data.games && data.games.length ? data.games.slice() : defaults.slice();
+        if (window.tiLang && window.tiLang() !== "tr" && window.tiText && games[0]) {
+            games[0] = Object.assign({}, games[0], {
+                kind: window.tiText("game.kind"),
+                summary: window.tiText("game.summary"),
+                blurb: window.tiText("home.blurb")
+            });
+        }
+        document.querySelectorAll("[data-play-store]").forEach(function (link) {
+            link.href = store;
+        });
+        paintStats(games[0]);
+        if (!root) return;
 
     root.innerHTML = games.map(function (game) {
         return (
             '<div class="game-tab">' +
-                '<a class="game-tab-hit" href="' + game.href + '">' +
+                '<a class="game-tab-hit" href="' + escapeHtml(game.href) + '">' +
                     '<div class="game-tab-bar">' +
-                        '<img class="game-logo" src="' + game.logo + '" alt="">' +
+                        '<img class="game-logo" src="' + escapeHtml(game.logo) + '" alt="">' +
                         '<span class="game-tab-copy">' +
-                            '<span class="game-tab-title">' + game.name + "</span>" +
-                            '<span class="game-tab-kind">' + game.kind + "</span>" +
+                            '<span class="game-tab-title">' + escapeHtml(game.name) + "</span>" +
+                            '<span class="game-tab-kind">' + escapeHtml(game.kind) + "</span>" +
                         "</span>" +
                     "</div>" +
                     '<div class="game-tab-reveal">' +
                         '<div class="game-tab-reveal-inner">' +
-                            '<p class="game-tab-detail">' + game.summary + "</p>" +
+                            '<p class="game-tab-detail">' + escapeHtml(game.summary) + "</p>" +
                         "</div>" +
                     "</div>" +
                 "</a>" +
-                '<a class="btn btn-store btn-store-sm" href="' + PLAY_STORE_URL + '" target="_blank" rel="noopener noreferrer">' +
+                '<a class="btn btn-store btn-store-sm" href="' + escapeHtml(store) + '" target="_blank" rel="noopener noreferrer">' +
                     playIcon + "Play Store" +
                 "</a>" +
             "</div>"
         );
     }).join("");
+    }
+
+    var pending = window.tiContent ? window.tiContent() : Promise.resolve(null);
+    pending.then(apply);
+    document.addEventListener("ti-lang", function () { apply(lastData); });
 })();

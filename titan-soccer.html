@@ -10,14 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d4ed8'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial' font-size='13' font-weight='700' fill='white'%3ETi%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="./images/ti-logo.png" type="image/png">
 </head>
 <body>
     <a class="skip" href="#icerik">İçeriğe geç</a>
     <header class="site-header">
         <div class="wrap header-inner">
-            <a class="brand" href="./index.html" aria-label="Ti App Studio ana sayfa">
-                <span class="brand-mark">Ti</span>
+            <a class="brand" href="./index.html" aria-label="Ti App Studio ana sayfa" data-i18n-aria="brand.home">
+                <img class="brand-mark" src="./images/ti-logo.png" alt="">
                 <span class="brand-name">App Studio</span>
             </a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
@@ -28,45 +28,94 @@
                 <a href="./news.html">Haberler</a>
                 <a href="./contact.html">İletişim</a>
             </nav>
+            <div class="header-actions" data-auth-slot>
+                <a class="header-login" href="./login.html">Giriş yap</a>
+            </div>
         </div>
     </header>
 
     <main id="icerik" class="wrap game-page">
-        <header class="page-head">
-            <p class="eyebrow">Futbol</p>
-            <h1>Titan Soccer</h1>
-            <p>Kişisel bir 2D kariyer geliştirme oyunu. Kendi oyuncunla sahaya çıkar, maç maç ilerler ve sezon boyunca becerilerini geliştirirsin.</p>
-        </header>
+        <section class="store-top">
+            <img class="store-icon" data-bind-src="games.0.logo" src="./images/ttslogo1.png" alt="">
+            <div class="store-id">
+                <h1 data-bind="games.0.name">Titan Soccer</h1>
+                <p class="store-dev">Ti App Studio</p>
+                <p class="store-meta" data-bind="games.0.kind" data-i18n="game.kind">Futbol</p>
+                <p class="store-stats" data-store-stats>
+                    <span class="store-stat" data-stat="rating"><strong data-bind="games.0.rating">5,0</strong></span>
+                    <span class="store-stat" data-stat="ratingCount"><span data-bind="games.0.ratingCount">13</span> <span data-i18n="game.ratings">derecelendirme</span></span>
+                    <span class="store-stat" data-stat="downloads"><span data-bind="games.0.downloads">10+</span> <span data-i18n="game.downloads">indirme</span></span>
+                </p>
+            </div>
+            <div class="store-install">
+                <button class="btn-install" type="button" data-install aria-expanded="false" aria-controls="install-menu" data-i18n="game.install">Şimdi indir</button>
+                <div id="install-menu" class="install-menu" data-install-menu hidden>
+                    <a class="install-option" data-play-store href="https://play.google.com/store/apps/details?id=com.tiappstudio.tts" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="#34A853" d="M3.5 20.7 13.2 12 3.5 3.3c-.3.4-.5.9-.5 1.5v14.4c0 .6.2 1.1.5 1.5z"/>
+                            <path fill="#FBBC04" d="m16.4 15.2-3.2-3.2-9.7 8.7c.4.5 1 .8 1.7.8.5 0 1-.1 1.4-.4l9.8-5.9z"/>
+                            <path fill="#EA4335" d="M20.3 10.6 16.4 8.8 13.2 12l3.2 3.2 3.9-2.3c.8-.5.8-1.8 0-2.3z"/>
+                            <path fill="#4285F4" d="M4.7 2.7C4.3 3 4 3.5 4 4.1l9.2 7.9 3.2-3.2L4.7 2.7z"/>
+                        </svg>
+                        Google Play
+                    </a>
+                    <span class="install-option is-empty">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="currentColor" d="M16.4 12.7c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.3-.1-2.6.8-3.3.8s-1.7-.8-2.9-.8c-1.5 0-2.8.9-3.6 2.2-1.5 2.7-.4 6.6 1.1 8.8.7 1.1 1.6 2.3 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.7.7 2.9.7 1.9-1.1 2.6-2.1c.8-1.2 1.1-2.3 1.2-2.4-.1 0-2.2-.8-2.2-3.6zM14.7 6.5c.6-.7 1-1.7.9-2.7-1 .1-2.1.6-2.8 1.4-.6.7-1.1 1.7-.9 2.6 1 .1 2.1-.5 2.8-1.3z"/>
+                        </svg>
+                        App Store
+                        <small data-i18n="game.soon">Yakında</small>
+                    </span>
+                </div>
+            </div>
+        </section>
 
-        <figure class="game-hero-shot">
-            <img src="./images/titan-soccer.jpg" alt="Titan Soccer’da gece maçı, stadyum ışıkları altında bir şut">
-        </figure>
-
-        <div class="game-page-actions">
-            <a class="btn btn-primary" href="./contact.html">Oyun hakkında yaz</a>
-            <a class="btn btn-ghost" href="./games.html">Tüm oyunlar</a>
+        <div class="shot-rail" tabindex="0" aria-label="Oyun görselleri" data-i18n-aria="shots.aria">
+            <img src="./images/shots/01.jpg" alt="Maç sırasında saha ve oyuncular" data-i18n-alt="shot.1">
+            <img src="./images/shots/02.jpg" alt="Kritik bir pozisyon" data-i18n-alt="shot.2">
+            <img src="./images/shots/03.jpg" alt="Maç öncesi diziliş" data-i18n-alt="shot.3">
+            <img src="./images/shots/04.jpg" alt="Kariyer ekranı, sonraki maç ve puan durumu" data-i18n-alt="shot.4">
+            <img src="./images/shots/05.jpg" alt="Oyuncu bilgisi ve kariyer menüsü" data-i18n-alt="shot.5">
+            <img src="./images/shots/06.jpg" alt="Transfer teklifi" data-i18n-alt="shot.6">
+            <img src="./images/shots/07.jpg" alt="Oyundaki sosyal medya akışı" data-i18n-alt="shot.7">
+            <img src="./images/shots/08.jpg" alt="Saha dışı telefon ekranı" data-i18n-alt="shot.8">
         </div>
 
+        <section class="store-about" aria-labelledby="about-game">
+            <h2 id="about-game" data-i18n="game.about">Bu oyun hakkında</h2>
+            <p data-bind="games.0.summary" data-i18n="game.summary">Titan Soccer, kişisel bir 2D kariyer geliştirme oyunudur. Kendi oyuncunla sahaya çıkar, maç maç ilerler ve sezon boyunca becerilerini geliştirirsin. Odak kalabalık bir kadroda değil, sana ait tek bir futbol yolundadır.</p>
+            <button class="btn btn-ghost feedback-open" type="button" data-feedback data-i18n="game.feedback">Oyun hakkında geri bildirimde bulun</button>
+        </section>
+
         <section aria-labelledby="features-title">
-            <h2 id="features-title">Oyunda ne var</h2>
+            <h2 id="features-title" data-i18n="game.features">Oyunda ne var</h2>
             <div class="feature-grid">
                 <article>
-                    <h3>Kariyer</h3>
-                    <p>Sezon ilerledikçe hedefler değişir. Tek maçlık bir skor değil, süren bir yol.</p>
+                    <h3 data-i18n="game.career">Kariyer</h3>
+                    <p data-i18n="game.careerText">Sezon ilerledikçe hedefler değişir. Tek maçlık bir skor değil, süren bir yol.</p>
                 </article>
                 <article>
-                    <h3>Karakter</h3>
-                    <p>Rolünü ve tarzını sen kurarsın. Her oyuncu aynı kalıptan çıkmaz.</p>
+                    <h3 data-i18n="game.character">Karakter</h3>
+                    <p data-i18n="game.characterText">Rolünü ve tarzını sen kurarsın. Her oyuncu aynı kalıptan çıkmaz.</p>
                 </article>
                 <article>
-                    <h3>Maç</h3>
-                    <p>Saha okunaklı, tempo yüksek. Ne yapman gerektiği ilk dakikada belli olur.</p>
+                    <h3 data-i18n="game.match">Maç</h3>
+                    <p data-i18n="game.matchText">Saha okunaklı, tempo yüksek. Ne yapman gerektiği ilk dakikada belli olur.</p>
                 </article>
                 <article>
-                    <h3>Gelişim</h3>
-                    <p>Oynadıkça yeni beceriler açılır. İlerleme, menünün içinde kaybolmaz.</p>
+                    <h3 data-i18n="game.growth">Gelişim</h3>
+                    <p data-i18n="game.growthText">Oynadıkça yeni beceriler açılır. İlerleme, menünün içinde kaybolmaz.</p>
                 </article>
             </div>
+        </section>
+
+        <section class="store-langs" aria-labelledby="langs-title">
+            <h2 id="langs-title" data-i18n="game.languages">Desteklenen diller</h2>
+            <ul class="lang-list">
+                <li>Türkçe</li>
+                <li>English</li>
+            </ul>
+            <p class="store-legal"><a class="text-link" href="./titan-soccer-privacy.html" data-i18n="game.privacy">Gizlilik politikası</a></p>
         </section>
     </main>
 
@@ -88,6 +137,34 @@
             <p>© <span data-year>2026</span> Ti App Studio</p>
         </div>
     </footer>
+    <script src="./js/i18n.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/content.js"></script>
+    <script src="./js/site-copy.js"></script>
+    <script src="./js/games-list.js"></script>
+    <script src="./js/auth-ui.js"></script>
+    <script src="./js/feedback.js"></script>
+    <script>
+        (function () {
+            var button = document.querySelector("[data-install]");
+            var menu = document.querySelector("[data-install-menu]");
+            if (!button || !menu) return;
+
+            function setOpen(open) {
+                menu.hidden = !open;
+                button.setAttribute("aria-expanded", open ? "true" : "false");
+            }
+
+            button.addEventListener("click", function () {
+                setOpen(menu.hidden);
+            });
+            document.addEventListener("click", function (event) {
+                if (!button.contains(event.target) && !menu.contains(event.target)) setOpen(false);
+            });
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") setOpen(false);
+            });
+        })();
+    </script>
 </body>
 </html>

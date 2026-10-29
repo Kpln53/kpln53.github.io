@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ti App Studio ile iletişime geçin. Titan Soccer, iş birliği ve genel sorular.">
+    <meta name="description" content="Ti App Studio ile iletişime geçin. Titan Soccer, iş birliği, genel sorular ve iş başvurusu.">
     <meta name="theme-color" content="#0c1016">
     <title>İletişim | Ti App Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d4ed8'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial' font-size='13' font-weight='700' fill='white'%3ETi%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="./images/ti-logo.png" type="image/png">
 </head>
 <body>
     <a class="skip" href="#icerik">İçeriğe geç</a>
     <header class="site-header">
         <div class="wrap header-inner">
-            <a class="brand" href="./index.html" aria-label="Ti App Studio ana sayfa">
-                <span class="brand-mark">Ti</span>
+            <a class="brand" href="./index.html" aria-label="Ti App Studio ana sayfa" data-i18n-aria="brand.home">
+                <img class="brand-mark" src="./images/ti-logo.png" alt="">
                 <span class="brand-name">App Studio</span>
             </a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
@@ -28,45 +28,84 @@
                 <a href="./news.html">Haberler</a>
                 <a href="./contact.html" aria-current="page">İletişim</a>
             </nav>
+            <div class="header-actions" data-auth-slot>
+                <a class="header-login" href="./login.html">Giriş yap</a>
+            </div>
         </div>
     </header>
 
     <main id="icerik" class="wrap contact-layout">
         <div class="contact-copy">
-            <p class="eyebrow">İletişim</p>
-            <h1>Yazın.</h1>
-            <p>Titan Soccer, bir iş birliği ya da genel bir soru için mesaj bırakın. Gönder dediğinizde e-posta uygulamanız açılır.</p>
-            <a class="mail-link" href="mailto:hello@tiappstudio.com">hello@tiappstudio.com</a>
+            <p class="eyebrow" data-i18n="contact.eyebrow">İletişim</p>
+            <h1 data-i18n="contact.title">Yazın.</h1>
+            <p data-bind="site.contactLead" data-i18n="contact.lead">Titan Soccer, bir iş birliği ya da genel bir soru için mesaj bırakın. Gönder dediğinizde e-posta uygulamanız açılır.</p>
+            <a class="mail-link" data-bind="site.email" href="mailto:support@tiappstudio.com">support@tiappstudio.com</a>
+            <button class="btn btn-ghost job-open" type="button" data-job-open data-i18n="job.ask">Bizimle çalışmak ister misin?</button>
         </div>
 
-        <form id="contact-form" class="contact-form" action="mailto:hello@tiappstudio.com" method="post" enctype="text/plain">
+        <form id="contact-form" class="contact-form" action="mailto:support@tiappstudio.com" method="post" enctype="text/plain">
             <div class="form-row">
                 <label class="field">
-                    <span>Ad</span>
-                    <input type="text" name="name" autocomplete="name" required minlength="2" placeholder="Adınız">
+                    <span data-i18n="contact.name">Ad</span>
+                    <input type="text" name="name" autocomplete="name" required minlength="2" placeholder="Adınız" data-i18n-placeholder="contact.namePh">
                 </label>
                 <label class="field">
-                    <span>E-posta</span>
-                    <input type="email" name="email" autocomplete="email" required placeholder="ornek@mail.com">
+                    <span data-i18n="contact.email">E-posta</span>
+                    <input type="email" name="email" autocomplete="email" required placeholder="ornek@mail.com" data-i18n-placeholder="contact.emailPh">
                 </label>
             </div>
             <label class="field">
-                <span>Konu</span>
+                <span data-i18n="contact.topic">Konu</span>
                 <select name="topic">
-                    <option>Genel</option>
+                    <option data-i18n="contact.general">Genel</option>
                     <option>Titan Soccer</option>
-                    <option>İş birliği</option>
-                    <option>Diğer</option>
+                    <option data-i18n="contact.collab">İş birliği</option>
+                    <option data-i18n="contact.other">Diğer</option>
                 </select>
             </label>
             <label class="field">
-                <span>Mesaj</span>
-                <textarea name="message" required minlength="10" placeholder="Kısaca yazın."></textarea>
+                <span data-i18n="contact.message">Mesaj</span>
+                <textarea name="message" required minlength="10" placeholder="Kısaca yazın." data-i18n-placeholder="contact.messagePh"></textarea>
             </label>
             <p id="form-status" class="form-status" role="status"></p>
-            <button class="btn btn-primary" type="submit">Mesajı gönder</button>
-            <p class="form-hint">Mesaj cihazınızdaki e-posta uygulamasına gider. Adres: hello@tiappstudio.com</p>
+            <button class="btn btn-primary" type="submit" data-i18n="contact.send">Mesajı gönder</button>
+            <p class="form-hint"><span data-i18n="contact.hint">Mesaj cihazınızdaki e-posta uygulamasına gider.</span> <a class="mail-link" data-bind="site.email" href="mailto:support@tiappstudio.com">support@tiappstudio.com</a></p>
         </form>
+
+        <dialog class="job-dialog" id="job-dialog" aria-labelledby="job-dialog-title">
+            <div class="job-dialog-card">
+                <button class="btn btn-ghost job-close" type="button" data-job-close data-i18n="feedback.close">Kapat</button>
+                <h2 id="job-dialog-title" data-i18n="job.ask">Bizimle çalışmak ister misin?</h2>
+                <p class="job-lead" data-i18n="job.lead">Şu an açık bir ilan yok. Stüdyoya katılmak istersen kendini ve yapmak istediğin işi kısaca yaz.</p>
+            <form id="job-form" class="contact-form">
+                <div class="form-row">
+                    <label class="field">
+                        <span data-i18n="contact.name">Ad</span>
+                        <input type="text" name="name" autocomplete="name" required minlength="2" placeholder="Adınız" data-i18n-placeholder="contact.namePh">
+                    </label>
+                    <label class="field">
+                        <span data-i18n="contact.email">E-posta</span>
+                        <input type="email" name="email" autocomplete="email" required placeholder="ornek@mail.com" data-i18n-placeholder="contact.emailPh">
+                    </label>
+                </div>
+                <label class="field">
+                    <span data-i18n="job.role">Ne yapmak istiyorsun</span>
+                    <input type="text" name="role" required minlength="2" placeholder="Örneğin oyun tasarımı" data-i18n-placeholder="job.rolePh">
+                </label>
+                <label class="field">
+                    <span class="field-label"><span data-i18n="job.link">Portfolyo</span> <span class="field-optional" data-i18n="job.optional">İsteğe bağlı</span></span>
+                    <input type="url" name="link" inputmode="url" placeholder="https://" data-i18n-placeholder="job.linkPh">
+                </label>
+                <label class="field">
+                    <span data-i18n="contact.message">Mesaj</span>
+                    <textarea name="message" required minlength="10" placeholder="Kendini kısaca anlat." data-i18n-placeholder="job.messagePh"></textarea>
+                </label>
+                <p id="job-status" class="form-status" role="status"></p>
+                <button class="btn btn-primary" type="submit" data-i18n="job.send">Başvuruyu gönder</button>
+                <p class="form-hint"><span data-i18n="contact.hint">Mesaj cihazınızdaki e-posta uygulamasına gider.</span> <a class="mail-link" data-bind="site.email" href="mailto:support@tiappstudio.com">support@tiappstudio.com</a></p>
+            </form>
+            </div>
+        </dialog>
     </main>
 
     <footer class="site-footer">
@@ -87,6 +126,10 @@
             <p>© <span data-year>2026</span> Ti App Studio</p>
         </div>
     </footer>
+    <script src="./js/i18n.js"></script>
+    <script src="./js/content.js"></script>
+    <script src="./js/site-copy.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/auth-ui.js"></script>
 </body>
 </html>
