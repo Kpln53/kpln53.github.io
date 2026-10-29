@@ -867,6 +867,7 @@ a.tile-store:hover { background: #15243d; border-color: var(--blue-bright); }
     color: var(--muted);
     font-size: 1.02rem;
     line-height: 1.7;
+    white-space: pre-wrap;
 }
 .news-date {
     color: var(--blue-bright);

@@ -4,10 +4,10 @@
 
     var defaults = [
         {
-            date: "Ekim 2026",
-            title: "Titan Soccer",
-            text: "Kişisel bir 2D kariyer geliştirme oyunu. Kendi oyuncunla sahaya çıkar, maç maç ilerler ve sezon boyunca becerilerini geliştirirsin.",
-            detail: "Titan Soccer, Ti App Studio’nun futbol oyunudur. Kişisel bir 2D kariyer geliştirme oyunu olarak kuruldu. Kendi oyuncunla sahaya çıkar, maç maç ilerler ve sezon boyunca becerilerini geliştirirsin. Odak kalabalık bir kadroda değil, sana ait tek bir futbol yolundadır."
+            date: "29 Ekim 2026",
+            title: "TitanSoccer v1.1 Şimdi yayında",
+            text: "İlk büyük güncelleme yayında.",
+            detail: "TitanSoccer'in ilk büyük güncellemesine hoş geldiniz.\n\nKarşınızda v1.1 yenilikleri:\n\nOynanış\nFutbolcuların ve topun boyutu biraz küçültüldü. AI geliştirildi. Pozisyon çeşitliliği arttırıldı.\n\nÖzel Zorluk Ayarı\nArtık kendi zorluğunuzu oluşturup seviyenizi kendiniz belirleyebilirsiniz.\n\nTiChat\nTiChat'e yeni mesaj çeşitleri eklendi. Mesaj gönderen taraf artık siz de olabiliyorsunuz.\n\nDoping\nDopingler oyundan kaldırıldı. Yerine oyuncu takviyeleri olarak geri eklendi. Fiyatları güncellendi.\n\nYetenek Ağacı\nYetenek ağacı sayfasının tasarımı geliştirildi. Yeni efektler eklendi.\n\nŞut Gücü Ayarı\nŞut gücü ayarı seçme kaldırıldı. Şut gücünü açmak istiyorsanız ayarlardan özel olarak açmanız gerekecek.\n\nYükleme Ekranları\nYükleme ekranları optimize edildi. Artık daha hızlı.\n\nYeni Para Birimleri\nOyuna TL ve Dolar para birimleri eklendi. Ayarlardan değiştirebilirsiniz.\n\nYeni Mevkiler\nOyuna SĞK ve SLK mevkileri eklendi. Mevkilere özel pozisyonlar da eklendi.\n\nTasarım İyileştirmeleri\nÇeşitli tasarım iyileştirmeleri yapıldı.\n\nSpiker\nSpikerde iyileştirmeler yapıldı.\n\nHaberler\nHaber türleri çeşitlendirildi.\n\nPozisyon Alma\nPozisyon alma olasılıkları arttırıldı. Her iki yarıda da en az 1 pozisyon alma eklendi. Yedekten girince pozisyon alma şansı arttırıldı.\n\nMaç Sonucu Paneli\nArtık maç sonu panelinde diğer maçlar gösterilirken toplam skor da gösteriliyor.\n\nHedef Takım Sistemi\nEski takım önerme sistemi tamamen kaldırıldı. Yerine Takım Önerme Sistemi eklendi. Menajerinizin seviyesine ve oyuncunuzun gücüne göre hedefler değişiyor."
         },
         {
             date: "Ekim 2026",
