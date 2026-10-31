@@ -1183,6 +1183,42 @@ a.install-option:hover { background: rgba(255, 255, 255, 0.05); }
     font-size: 0.95rem;
     line-height: 1.65;
 }
+.note-old {
+    max-width: 46rem;
+    margin-top: 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+.note-old summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+}
+.note-old summary::-webkit-details-marker { display: none; }
+.note-old summary::after {
+    content: "";
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 2px solid var(--muted);
+    border-bottom: 2px solid var(--muted);
+    transform: rotate(45deg);
+    flex: none;
+}
+.note-old[open] summary::after {
+    transform: rotate(-135deg);
+    margin-top: 0.25rem;
+}
+.note-old .note-release {
+    border: 0;
+    background: transparent;
+    padding-top: 0;
+}
 .store-about { max-width: 46rem; margin-bottom: 2.2rem; }
 .store-about p {
     margin-top: 0.8rem;
