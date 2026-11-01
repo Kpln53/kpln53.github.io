@@ -225,6 +225,10 @@ main { flex: 1 0 auto; }
     background: var(--surface);
     font-weight: 600;
 }
+.lang-experimental {
+    color: var(--muted);
+    font-weight: 500;
+}
 .store-legal { margin-top: 1.5rem; }
 .policy {
     max-width: 44rem;
