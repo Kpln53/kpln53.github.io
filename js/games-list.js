@@ -17,9 +17,9 @@
             href: "/titan-soccer",
             logo: "/images/ttslogo1.png",
             summary: "Titan Soccer, kişisel bir 2D kariyer geliştirme oyunudur. Kendi oyuncunla sahaya çıkar, maç maç ilerler ve sezon boyunca becerilerini geliştirirsin. Odak kalabalık bir kadroda değil, sana ait tek bir futbol yolundadır.",
-            rating: "5,0",
+            rating: "4,8",
             ratingCount: "13",
-            downloads: "10+"
+            downloads: "1K+"
         }
     ];
 

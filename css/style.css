@@ -1187,6 +1187,11 @@ a.install-option:hover { background: rgba(255, 255, 255, 0.05); }
     font-size: 0.95rem;
     line-height: 1.65;
 }
+.note-thanks {
+    margin: 0.15rem 0 1rem;
+    color: var(--ink);
+    font-weight: 600;
+}
 .note-old {
     max-width: 46rem;
     margin-top: 0.85rem;
